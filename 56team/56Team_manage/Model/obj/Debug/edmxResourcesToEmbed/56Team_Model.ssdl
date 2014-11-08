@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="teamModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="_56rms_file">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="int" Nullable="false" />
+    <Property Name="file_name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="file_type" Type="int" Nullable="false" />
+    <Property Name="file_update_time" Type="datetime" Precision="6" Nullable="false" />
+    <Property Name="file_size" Type="double" Nullable="false" />
+    <Property Name="file_updater" Type="int" Nullable="false" />
+    <Property Name="file_path" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="_56rms_group">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="group_name" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="_56rms_inform-table">
+    <Key>
+      <PropertyRef Name="inform_user_id" />
+    </Key>
+    <Property Name="inform_user_id" Type="int" Nullable="false" />
+    <Property Name="inform_title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="inform_content" Type="varchar" MaxLength="1024" />
+    <Property Name="inform_pu_time" Type="datetime" Precision="6" Nullable="false" />
+  </EntityType>
+  <EntityType Name="_56rms_limit">
+    <Key>
+      <PropertyRef Name="user_limit" />
+    </Key>
+    <Property Name="user_limit" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="_56rms_user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="user_name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="16" Nullable="false" />
+    <Property Name="user_gender" Type="varchar" MaxLength="1" />
+    <Property Name="user_grade" Type="int" />
+    <Property Name="user_department" Type="int" />
+    <Property Name="user_major" Type="int" />
+    <Property Name="user_tel" Type="int" />
+    <Property Name="user_qq" Type="int" />
+    <Property Name="user_email" Type="varchar" MaxLength="30" />
+    <Property Name="user_psw_quest" Type="varchar" MaxLength="20" />
+    <Property Name="user_psw_answ" Type="varchar" MaxLength="20" />
+    <Property Name="user_isDel" Type="bool" Nullable="false" />
+  </EntityType>
+  <EntityType Name="_56rms_user_role">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="user_type" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="belong">
+    <End Role="_56rms_user" Type="Self._56rms_user" Multiplicity="1" />
+    <End Role="_56rms_group" Type="Self._56rms_group" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="_56rms_user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="_56rms_group">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="informer">
+    <End Role="_56rms_user" Type="Self._56rms_user" Multiplicity="1" />
+    <End Role="_56rms_inform-table" Type="Self._56rms_inform-table" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="_56rms_user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="_56rms_inform-table">
+        <PropertyRef Name="inform_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="job">
+    <End Role="_56rms_user" Type="Self._56rms_user" Multiplicity="1" />
+    <End Role="_56rms_user_role" Type="Self._56rms_user_role" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="_56rms_user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="_56rms_user_role">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="starus">
+    <End Role="_56rms_limit" Type="Self._56rms_limit" Multiplicity="1" />
+    <End Role="_56rms_user_role" Type="Self._56rms_user_role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_56rms_limit">
+        <PropertyRef Name="user_limit" />
+      </Principal>
+      <Dependent Role="_56rms_user_role">
+        <PropertyRef Name="user_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="updater">
+    <End Role="_56rms_user" Type="Self._56rms_user" Multiplicity="1" />
+    <End Role="_56rms_file" Type="Self._56rms_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="_56rms_user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="_56rms_file">
+        <PropertyRef Name="file_updater" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="teamModelStoreContainer">
+    <EntitySet Name="_56rms_file" EntityType="Self._56rms_file" Schema="56team" store:Type="Tables" />
+    <EntitySet Name="_56rms_group" EntityType="Self._56rms_group" Schema="56team" store:Type="Tables" />
+    <EntitySet Name="_56rms_inform-table" EntityType="Self._56rms_inform-table" Schema="56team" store:Type="Tables" />
+    <EntitySet Name="_56rms_limit" EntityType="Self._56rms_limit" Schema="56team" store:Type="Tables" />
+    <EntitySet Name="_56rms_user" EntityType="Self._56rms_user" Schema="56team" store:Type="Tables" />
+    <EntitySet Name="_56rms_user_role" EntityType="Self._56rms_user_role" Schema="56team" store:Type="Tables" />
+    <AssociationSet Name="belong" Association="Self.belong">
+      <End Role="_56rms_user" EntitySet="_56rms_user" />
+      <End Role="_56rms_group" EntitySet="_56rms_group" />
+    </AssociationSet>
+    <AssociationSet Name="informer" Association="Self.informer">
+      <End Role="_56rms_user" EntitySet="_56rms_user" />
+      <End Role="_56rms_inform-table" EntitySet="_56rms_inform-table" />
+    </AssociationSet>
+    <AssociationSet Name="job" Association="Self.job">
+      <End Role="_56rms_user" EntitySet="_56rms_user" />
+      <End Role="_56rms_user_role" EntitySet="_56rms_user_role" />
+    </AssociationSet>
+    <AssociationSet Name="starus" Association="Self.starus">
+      <End Role="_56rms_limit" EntitySet="_56rms_limit" />
+      <End Role="_56rms_user_role" EntitySet="_56rms_user_role" />
+    </AssociationSet>
+    <AssociationSet Name="updater" Association="Self.updater">
+      <End Role="_56rms_user" EntitySet="_56rms_user" />
+      <End Role="_56rms_file" EntitySet="_56rms_file" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

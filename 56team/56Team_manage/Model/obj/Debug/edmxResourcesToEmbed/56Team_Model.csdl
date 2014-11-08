@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="teamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="C_56rms_file">
+    <Key>
+      <PropertyRef Name="file_id" />
+    </Key>
+    <Property Name="file_id" Type="Int32" Nullable="false" />
+    <Property Name="file_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="file_type" Type="Int32" Nullable="false" />
+    <Property Name="file_update_time" Type="DateTime" Nullable="false" />
+    <Property Name="file_size" Type="Double" Nullable="false" />
+    <Property Name="file_updater" Type="Int32" Nullable="false" />
+    <Property Name="file_path" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="C_56rms_user" Relationship="Self.updater" FromRole="C_56rms_file" ToRole="C_56rms_user" />
+  </EntityType>
+  <EntityType Name="C_56rms_group">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="group_name" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="C_56rms_user" Relationship="Self.belong" FromRole="C_56rms_group" ToRole="C_56rms_user" />
+  </EntityType>
+  <EntityType Name="C_56rms_inform_table">
+    <Key>
+      <PropertyRef Name="inform_user_id" />
+    </Key>
+    <Property Name="inform_user_id" Type="Int32" Nullable="false" />
+    <Property Name="inform_title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="inform_content" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+    <Property Name="inform_pu_time" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="C_56rms_user" Relationship="Self.informer" FromRole="C_56rms_inform_table" ToRole="C_56rms_user" />
+  </EntityType>
+  <EntityType Name="C_56rms_limit">
+    <Key>
+      <PropertyRef Name="user_limit" />
+    </Key>
+    <Property Name="user_limit" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="C_56rms_user" Relationship="Self.C_56rms_user_role" FromRole="C_56rms_limit" ToRole="C_56rms_user" />
+  </EntityType>
+  <EntityType Name="C_56rms_user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="user_gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="user_grade" Type="Int32" />
+    <Property Name="user_department" Type="Int32" />
+    <Property Name="user_major" Type="Int32" />
+    <Property Name="user_tel" Type="Int32" />
+    <Property Name="user_qq" Type="Int32" />
+    <Property Name="user_email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="user_psw_quest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="user_psw_answ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="user_isDel" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="C_56rms_file" Relationship="Self.updater" FromRole="C_56rms_user" ToRole="C_56rms_file" />
+    <NavigationProperty Name="C_56rms_group" Relationship="Self.belong" FromRole="C_56rms_user" ToRole="C_56rms_group" />
+    <NavigationProperty Name="C_56rms_inform_table" Relationship="Self.informer" FromRole="C_56rms_user" ToRole="C_56rms_inform_table" />
+    <NavigationProperty Name="C_56rms_limit" Relationship="Self.C_56rms_user_role" FromRole="C_56rms_user" ToRole="C_56rms_limit" />
+  </EntityType>
+  <Association Name="updater">
+    <End Role="C_56rms_user" Type="Self.C_56rms_user" Multiplicity="1" />
+    <End Role="C_56rms_file" Type="Self.C_56rms_file" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="C_56rms_user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="C_56rms_file">
+        <PropertyRef Name="file_updater" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="belong">
+    <End Role="C_56rms_user" Type="Self.C_56rms_user" Multiplicity="1" />
+    <End Role="C_56rms_group" Type="Self.C_56rms_group" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="C_56rms_user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="C_56rms_group">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="informer">
+    <End Role="C_56rms_user" Type="Self.C_56rms_user" Multiplicity="1" />
+    <End Role="C_56rms_inform_table" Type="Self.C_56rms_inform_table" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="C_56rms_user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="C_56rms_inform_table">
+        <PropertyRef Name="inform_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="C_56rms_user_role">
+    <End Role="C_56rms_user" Type="Self.C_56rms_user" Multiplicity="*" />
+    <End Role="C_56rms_limit" Type="Self.C_56rms_limit" Multiplicity="0..1" />
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C_56rms_file" EntityType="Self.C_56rms_file" />
+    <EntitySet Name="C_56rms_group" EntityType="Self.C_56rms_group" />
+    <EntitySet Name="C_56rms_inform_table" EntityType="Self.C_56rms_inform_table" />
+    <EntitySet Name="C_56rms_limit" EntityType="Self.C_56rms_limit" />
+    <EntitySet Name="C_56rms_user" EntityType="Self.C_56rms_user" />
+    <AssociationSet Name="updater" Association="Self.updater">
+      <End Role="C_56rms_user" EntitySet="C_56rms_user" />
+      <End Role="C_56rms_file" EntitySet="C_56rms_file" />
+    </AssociationSet>
+    <AssociationSet Name="belong" Association="Self.belong">
+      <End Role="C_56rms_user" EntitySet="C_56rms_user" />
+      <End Role="C_56rms_group" EntitySet="C_56rms_group" />
+    </AssociationSet>
+    <AssociationSet Name="informer" Association="Self.informer">
+      <End Role="C_56rms_user" EntitySet="C_56rms_user" />
+      <End Role="C_56rms_inform_table" EntitySet="C_56rms_inform_table" />
+    </AssociationSet>
+    <AssociationSet Name="C_56rms_user_role" Association="Self.C_56rms_user_role">
+      <End Role="C_56rms_user" EntitySet="C_56rms_user" />
+      <End Role="C_56rms_limit" EntitySet="C_56rms_limit" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

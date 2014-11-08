@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="teamModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="C_56rms_file">
+      <EntityTypeMapping TypeName="teamModel.C_56rms_file">
+        <MappingFragment StoreEntitySet="_56rms_file">
+          <ScalarProperty Name="file_id" ColumnName="file_id" />
+          <ScalarProperty Name="file_name" ColumnName="file_name" />
+          <ScalarProperty Name="file_type" ColumnName="file_type" />
+          <ScalarProperty Name="file_update_time" ColumnName="file_update_time" />
+          <ScalarProperty Name="file_size" ColumnName="file_size" />
+          <ScalarProperty Name="file_updater" ColumnName="file_updater" />
+          <ScalarProperty Name="file_path" ColumnName="file_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_56rms_group">
+      <EntityTypeMapping TypeName="teamModel.C_56rms_group">
+        <MappingFragment StoreEntitySet="_56rms_group">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="group_name" ColumnName="group_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_56rms_inform_table">
+      <EntityTypeMapping TypeName="teamModel.C_56rms_inform_table">
+        <MappingFragment StoreEntitySet="_56rms_inform-table">
+          <ScalarProperty Name="inform_user_id" ColumnName="inform_user_id" />
+          <ScalarProperty Name="inform_title" ColumnName="inform_title" />
+          <ScalarProperty Name="inform_content" ColumnName="inform_content" />
+          <ScalarProperty Name="inform_pu_time" ColumnName="inform_pu_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_56rms_limit">
+      <EntityTypeMapping TypeName="teamModel.C_56rms_limit">
+        <MappingFragment StoreEntitySet="_56rms_limit">
+          <ScalarProperty Name="user_limit" ColumnName="user_limit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="C_56rms_user">
+      <EntityTypeMapping TypeName="teamModel.C_56rms_user">
+        <MappingFragment StoreEntitySet="_56rms_user">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="user_gender" ColumnName="user_gender" />
+          <ScalarProperty Name="user_grade" ColumnName="user_grade" />
+          <ScalarProperty Name="user_department" ColumnName="user_department" />
+          <ScalarProperty Name="user_major" ColumnName="user_major" />
+          <ScalarProperty Name="user_tel" ColumnName="user_tel" />
+          <ScalarProperty Name="user_qq" ColumnName="user_qq" />
+          <ScalarProperty Name="user_email" ColumnName="user_email" />
+          <ScalarProperty Name="user_psw_quest" ColumnName="user_psw_quest" />
+          <ScalarProperty Name="user_psw_answ" ColumnName="user_psw_answ" />
+          <ScalarProperty Name="user_isDel" ColumnName="user_isDel" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="C_56rms_user_role" TypeName="teamModel.C_56rms_user_role" StoreEntitySet="_56rms_user_role">
+      <EndProperty Name="C_56rms_user">
+        <ScalarProperty Name="user_id" ColumnName="user_id" />
+      </EndProperty>
+      <EndProperty Name="C_56rms_limit">
+        <ScalarProperty Name="user_limit" ColumnName="user_type" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

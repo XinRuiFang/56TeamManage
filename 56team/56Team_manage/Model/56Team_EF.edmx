@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="rmsModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="56rms_file">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="int" Nullable="false" />
+          <Property Name="file_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="file_type" Type="int" Nullable="false" />
+          <Property Name="file_update_time" Type="datetime" Precision="6" Nullable="false" />
+          <Property Name="file_size" Type="double" Nullable="false" />
+          <Property Name="file_updater" Type="int" Nullable="false" />
+          <Property Name="file_path" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="56rms_group">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="group_name" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="56rms_inform-table">
+          <Key>
+            <PropertyRef Name="inform_user_id" />
+          </Key>
+          <Property Name="inform_user_id" Type="int" Nullable="false" />
+          <Property Name="inform_title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="inform_content" Type="varchar" MaxLength="1024" />
+          <Property Name="inform_pu_time" Type="datetime" Precision="6" Nullable="false" />
+        </EntityType>
+        <EntityType Name="56rms_limit">
+          <Key>
+            <PropertyRef Name="limit_id" />
+          </Key>
+          <Property Name="limit_id" Type="int" Nullable="false" />
+          <Property Name="user_limit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="56rms_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="user_gender" Type="varchar" MaxLength="1" />
+          <Property Name="user_grade" Type="int" />
+          <Property Name="user_department" Type="int" />
+          <Property Name="user_major" Type="int" />
+          <Property Name="user_tel" Type="int" />
+          <Property Name="user_qq" Type="int" />
+          <Property Name="user_email" Type="varchar" MaxLength="30" />
+          <Property Name="user_psw_quest" Type="varchar" MaxLength="20" />
+          <Property Name="user_psw_answ" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="56rms_user_role">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="user_type" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="56rms_file_ibfk_1">
+          <End Role="56rms_user" Type="Self.56rms_user" Multiplicity="1" />
+          <End Role="56rms_file" Type="Self.56rms_file" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="56rms_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="56rms_file">
+              <PropertyRef Name="file_updater" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="56rms_group_ibfk_1">
+          <End Role="56rms_user" Type="Self.56rms_user" Multiplicity="1" />
+          <End Role="56rms_group" Type="Self.56rms_group" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="56rms_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="56rms_group">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="56rms_inform@002dtable_ibfk_1">
+          <End Role="56rms_user" Type="Self.56rms_user" Multiplicity="1" />
+          <End Role="56rms_inform-table" Type="Self.56rms_inform-table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="56rms_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="56rms_inform-table">
+              <PropertyRef Name="inform_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="56rms_user_role_ibfk_1">
+          <End Role="56rms_user" Type="Self.56rms_user" Multiplicity="1" />
+          <End Role="56rms_user_role" Type="Self.56rms_user_role" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="56rms_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="56rms_user_role">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="rmsModelStoreContainer">
+          <EntitySet Name="56rms_file" EntityType="Self.56rms_file" Schema="56rms" store:Type="Tables" />
+          <EntitySet Name="56rms_group" EntityType="Self.56rms_group" Schema="56rms" store:Type="Tables" />
+          <EntitySet Name="56rms_inform-table" EntityType="Self.56rms_inform-table" Schema="56rms" store:Type="Tables" />
+          <EntitySet Name="56rms_limit" EntityType="Self.56rms_limit" Schema="56rms" store:Type="Tables" />
+          <EntitySet Name="56rms_user" EntityType="Self.56rms_user" Schema="56rms" store:Type="Tables" />
+          <EntitySet Name="56rms_user_role" EntityType="Self.56rms_user_role" Schema="56rms" store:Type="Tables" />
+          <AssociationSet Name="56rms_file_ibfk_1" Association="Self.56rms_file_ibfk_1">
+            <End Role="56rms_user" EntitySet="56rms_user" />
+            <End Role="56rms_file" EntitySet="56rms_file" />
+          </AssociationSet>
+          <AssociationSet Name="56rms_group_ibfk_1" Association="Self.56rms_group_ibfk_1">
+            <End Role="56rms_user" EntitySet="56rms_user" />
+            <End Role="56rms_group" EntitySet="56rms_group" />
+          </AssociationSet>
+          <AssociationSet Name="56rms_inform@002dtable_ibfk_1" Association="Self.56rms_inform@002dtable_ibfk_1">
+            <End Role="56rms_user" EntitySet="56rms_user" />
+            <End Role="56rms_inform-table" EntitySet="56rms_inform-table" />
+          </AssociationSet>
+          <AssociationSet Name="56rms_user_role_ibfk_1" Association="Self.56rms_user_role_ibfk_1">
+            <End Role="56rms_user" EntitySet="56rms_user" />
+            <End Role="56rms_user_role" EntitySet="56rms_user_role" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="rmsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C56rms_file">
+          <Key>
+            <PropertyRef Name="file_id" />
+          </Key>
+          <Property Name="file_id" Type="Int32" Nullable="false" />
+          <Property Name="file_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="file_type" Type="Int32" Nullable="false" />
+          <Property Name="file_update_time" Type="DateTime" Nullable="false" />
+          <Property Name="file_size" Type="Double" Nullable="false" />
+          <Property Name="file_updater" Type="Int32" Nullable="false" />
+          <Property Name="file_path" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="C56rms_user" Relationship="Self.C56rms_file_ibfk_1" FromRole="C56rms_file" ToRole="C56rms_user" />
+        </EntityType>
+        <EntityType Name="C56rms_group">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="group_name" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="C56rms_user" Relationship="Self.C56rms_group_ibfk_1" FromRole="C56rms_group" ToRole="C56rms_user" />
+        </EntityType>
+        <EntityType Name="C56rms_inform_table">
+          <Key>
+            <PropertyRef Name="inform_user_id" />
+          </Key>
+          <Property Name="inform_user_id" Type="Int32" Nullable="false" />
+          <Property Name="inform_title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="inform_content" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="inform_pu_time" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="C56rms_user" Relationship="Self.C56rms_inform_002dtable_ibfk_1" FromRole="C56rms_inform_table" ToRole="C56rms_user" />
+        </EntityType>
+        <EntityType Name="C56rms_limit">
+          <Key>
+            <PropertyRef Name="limit_id" />
+          </Key>
+          <Property Name="limit_id" Type="Int32" Nullable="false" />
+          <Property Name="user_limit" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="C56rms_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="user_grade" Type="Int32" />
+          <Property Name="user_department" Type="Int32" />
+          <Property Name="user_major" Type="Int32" />
+          <Property Name="user_tel" Type="Int32" />
+          <Property Name="user_qq" Type="Int32" />
+          <Property Name="user_email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="user_psw_quest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="user_psw_answ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="C56rms_file" Relationship="Self.C56rms_file_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_file" />
+          <NavigationProperty Name="C56rms_group" Relationship="Self.C56rms_group_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_group" />
+          <NavigationProperty Name="C56rms_inform_table" Relationship="Self.C56rms_inform_002dtable_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_inform_table" />
+          <NavigationProperty Name="C56rms_user_role" Relationship="Self.C56rms_user_role_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_user_role" />
+        </EntityType>
+        <EntityType Name="C56rms_user_role">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="user_type" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="C56rms_user" Relationship="Self.C56rms_user_role_ibfk_1" FromRole="C56rms_user_role" ToRole="C56rms_user" />
+        </EntityType>
+        <Association Name="C56rms_file_ibfk_1">
+          <End Role="C56rms_user" Type="Self.C56rms_user" Multiplicity="1" />
+          <End Role="C56rms_file" Type="Self.C56rms_file" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="C56rms_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="C56rms_file">
+              <PropertyRef Name="file_updater" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C56rms_group_ibfk_1">
+          <End Role="C56rms_user" Type="Self.C56rms_user" Multiplicity="1" />
+          <End Role="C56rms_group" Type="Self.C56rms_group" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="C56rms_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="C56rms_group">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C56rms_inform_002dtable_ibfk_1">
+          <End Role="C56rms_user" Type="Self.C56rms_user" Multiplicity="1" />
+          <End Role="C56rms_inform_table" Type="Self.C56rms_inform_table" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="C56rms_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="C56rms_inform_table">
+              <PropertyRef Name="inform_user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="C56rms_user_role_ibfk_1">
+          <End Role="C56rms_user" Type="Self.C56rms_user" Multiplicity="1" />
+          <End Role="C56rms_user_role" Type="Self.C56rms_user_role" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="C56rms_user">
+              <PropertyRef Name="user_id" />
+            </Principal>
+            <Dependent Role="C56rms_user_role">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C56rms_file" EntityType="Self.C56rms_file" />
+          <EntitySet Name="C56rms_group" EntityType="Self.C56rms_group" />
+          <EntitySet Name="C56rms_inform_table" EntityType="Self.C56rms_inform_table" />
+          <EntitySet Name="C56rms_limit" EntityType="Self.C56rms_limit" />
+          <EntitySet Name="C56rms_user" EntityType="Self.C56rms_user" />
+          <EntitySet Name="C56rms_user_role" EntityType="Self.C56rms_user_role" />
+          <AssociationSet Name="C56rms_file_ibfk_1" Association="Self.C56rms_file_ibfk_1">
+            <End Role="C56rms_user" EntitySet="C56rms_user" />
+            <End Role="C56rms_file" EntitySet="C56rms_file" />
+          </AssociationSet>
+          <AssociationSet Name="C56rms_group_ibfk_1" Association="Self.C56rms_group_ibfk_1">
+            <End Role="C56rms_user" EntitySet="C56rms_user" />
+            <End Role="C56rms_group" EntitySet="C56rms_group" />
+          </AssociationSet>
+          <AssociationSet Name="C56rms_inform_002dtable_ibfk_1" Association="Self.C56rms_inform_002dtable_ibfk_1">
+            <End Role="C56rms_user" EntitySet="C56rms_user" />
+            <End Role="C56rms_inform_table" EntitySet="C56rms_inform_table" />
+          </AssociationSet>
+          <AssociationSet Name="C56rms_user_role_ibfk_1" Association="Self.C56rms_user_role_ibfk_1">
+            <End Role="C56rms_user" EntitySet="C56rms_user" />
+            <End Role="C56rms_user_role" EntitySet="C56rms_user_role" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="rmsModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="C56rms_file">
+            <EntityTypeMapping TypeName="rmsModel.C56rms_file">
+              <MappingFragment StoreEntitySet="56rms_file">
+                <ScalarProperty Name="file_id" ColumnName="file_id" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+                <ScalarProperty Name="file_type" ColumnName="file_type" />
+                <ScalarProperty Name="file_update_time" ColumnName="file_update_time" />
+                <ScalarProperty Name="file_size" ColumnName="file_size" />
+                <ScalarProperty Name="file_updater" ColumnName="file_updater" />
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C56rms_group">
+            <EntityTypeMapping TypeName="rmsModel.C56rms_group">
+              <MappingFragment StoreEntitySet="56rms_group">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C56rms_inform_table">
+            <EntityTypeMapping TypeName="rmsModel.C56rms_inform_table">
+              <MappingFragment StoreEntitySet="56rms_inform-table">
+                <ScalarProperty Name="inform_user_id" ColumnName="inform_user_id" />
+                <ScalarProperty Name="inform_title" ColumnName="inform_title" />
+                <ScalarProperty Name="inform_content" ColumnName="inform_content" />
+                <ScalarProperty Name="inform_pu_time" ColumnName="inform_pu_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C56rms_limit">
+            <EntityTypeMapping TypeName="rmsModel.C56rms_limit">
+              <MappingFragment StoreEntitySet="56rms_limit">
+                <ScalarProperty Name="limit_id" ColumnName="limit_id" />
+                <ScalarProperty Name="user_limit" ColumnName="user_limit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C56rms_user">
+            <EntityTypeMapping TypeName="rmsModel.C56rms_user">
+              <MappingFragment StoreEntitySet="56rms_user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="user_gender" ColumnName="user_gender" />
+                <ScalarProperty Name="user_grade" ColumnName="user_grade" />
+                <ScalarProperty Name="user_department" ColumnName="user_department" />
+                <ScalarProperty Name="user_major" ColumnName="user_major" />
+                <ScalarProperty Name="user_tel" ColumnName="user_tel" />
+                <ScalarProperty Name="user_qq" ColumnName="user_qq" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+                <ScalarProperty Name="user_psw_quest" ColumnName="user_psw_quest" />
+                <ScalarProperty Name="user_psw_answ" ColumnName="user_psw_answ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="C56rms_user_role">
+            <EntityTypeMapping TypeName="rmsModel.C56rms_user_role">
+              <MappingFragment StoreEntitySet="56rms_user_role">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_type" ColumnName="user_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
