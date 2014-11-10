@@ -3,27 +3,35 @@
 }
 
 <!DOCTYPE html>
+
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>56工作室平台管理系统</title>
-    <script type="text/javascript" src="~/Scripts/jquery-1.8.2.js">      
-    </script>
+    
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
-    <div>
-        欢迎来到56工作室平台管理系统！！
-    </div>
-    
-        @using (Html.BeginForm("Index","Home",FormMethod.Post))
-        { 
-            <div>用户名：<input type="text" name="userName" /> </div>
-            <div>密码：  <input type="password" name="userPwd" /> </div>
-            <div>验证码：<input type="text" name="vcode"><img src="/Vcode/getVcode"/></div>            
-            <input type="submit" value="确定" />
-           
-        }
-    
-    没有账号？@Html.ActionLink("注册","Index","Register")
+    欢迎你：@Session["Name"].ToString() 
+    <img src="~/Image/20141109052147735_easyicon_net_128.ico" />
+    <table>
+        <tr><td>用户名：@Session["Name"].ToString()</td></tr>
+        <tr><td>专业：@ViewBag.major</td></tr>
+        <tr><td>院系：@ViewBag.department</td></tr>
+        <tr><td>年级：@ViewBag.grade</td></tr>
+        <tr><td>角色：@ViewBag.limit</td></tr>
+    </table>
+
+    <a href="Home/MessageChange" class="btn btn-primary btn-lg active" role="button" >个人信息设置</a>
+    <a href="#" class="btn btn-default btn-lg active" role="button">公告</a>
+    <a href="#" class="btn btn-primary btn-lg active" role="button">申请入组</a>
+    <a href="#" class="btn btn-default btn-lg active" role="button">留言板</a>
+    <button type="button" class="btn btn-lg btn-primary">56工作室简介</button>
+    <button type="button" class="btn btn-default btn-lg" disabled="disabled">查看小组信息</button>
+    @Html.ActionLink("退出", "Index", "Login")
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
 </body>
 </html>
