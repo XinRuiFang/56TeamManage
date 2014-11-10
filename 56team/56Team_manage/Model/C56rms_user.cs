@@ -31,6 +31,7 @@ namespace Model
         public string user_email { get; set; }
         public string user_psw_quest { get; set; }
         public string user_psw_answ { get; set; }
+        public int user_limit { get; set; }
     
         public virtual ICollection<C56rms_file> C56rms_file { get; set; }
         public virtual C56rms_group C56rms_group { get; set; }

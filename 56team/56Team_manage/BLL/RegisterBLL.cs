@@ -10,7 +10,14 @@ namespace BLL
     {
         public static bool NewRegister(Model.C56rms_user user)
         {
-            return DAL.User.InsertNewUser(user);
+            if (DAL.User.InsertNewUser(user))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

@@ -15,7 +15,8 @@
 <body>
 
     <table align="center">
-        <tr>56工作室注册</tr>
+        <tr><td>@Html.ActionLink("返回登陆","Index","Login")</td></tr>
+        <tr><td>56工作室注册</td></tr>
         @using (Html.BeginForm("Index","Register",FormMethod.Post))
         { 
             <tr><td>请输入用户名：<input type="text" name="userName" /> </td></tr>

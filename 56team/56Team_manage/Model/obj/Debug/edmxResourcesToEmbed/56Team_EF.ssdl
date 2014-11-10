@@ -30,10 +30,11 @@
   </EntityType>
   <EntityType Name="56rms_limit">
     <Key>
-      <PropertyRef Name="limit_id" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="limit_id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="user_limit" Type="int" Nullable="false" />
+    <Property Name="create_priv" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="56rms_user">
     <Key>
@@ -51,6 +52,7 @@
     <Property Name="user_email" Type="varchar" MaxLength="30" />
     <Property Name="user_psw_quest" Type="varchar" MaxLength="20" />
     <Property Name="user_psw_answ" Type="varchar" MaxLength="20" />
+    <Property Name="user_limit" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="56rms_user_role">
     <Key>

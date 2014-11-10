@@ -35,8 +35,9 @@
     <EntitySetMapping Name="C56rms_limit">
       <EntityTypeMapping TypeName="rmsModel.C56rms_limit">
         <MappingFragment StoreEntitySet="56rms_limit">
-          <ScalarProperty Name="limit_id" ColumnName="limit_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="user_limit" ColumnName="user_limit" />
+          <ScalarProperty Name="create_priv" ColumnName="create_priv" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -55,6 +56,7 @@
           <ScalarProperty Name="user_email" ColumnName="user_email" />
           <ScalarProperty Name="user_psw_quest" ColumnName="user_psw_quest" />
           <ScalarProperty Name="user_psw_answ" ColumnName="user_psw_answ" />
+          <ScalarProperty Name="user_limit" ColumnName="user_limit" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

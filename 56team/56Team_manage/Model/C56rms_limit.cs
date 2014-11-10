@@ -14,7 +14,8 @@ namespace Model
     
     public partial class C56rms_limit
     {
-        public int limit_id { get; set; }
+        public int id { get; set; }
         public int user_limit { get; set; }
+        public int create_priv { get; set; }
     }
 }
