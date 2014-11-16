@@ -7,13 +7,118 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>56工作室平台管理系统</title>
-    
+    <title>56工作室平台管理系统</title>    
     <link href="~/Scripts/bootstrap.min.css" rel="stylesheet">
-
+    <style type="text/css">
+         #titlediv {
+             
+             background:url(../../Image/5c1f6acc79984b8f1e8ece9b19ca7afe.jpg);
+             background-repeat:no-repeat;
+             background-size:cover;                         
+             width:800px;
+             height:140px;     
+             border-bottom-color:aliceblue;
+             border-style:inset;
+             position:relative;
+             left:300px;
+        }
+        #title {
+            font-family:"微软雅黑";
+            font-size:50px;
+            position:relative;
+            top:20px;
+            text-decoration:underline;
+        }
+        #sctitle {
+            font-family:"微软雅黑";
+            font-size:30px;
+        }
+        #weldiv {
+            width:800px;
+            height:50px; 
+            position:relative;
+            left:300px;              
+            font-family:"微软雅黑";
+            font-size:20px;
+            background:url(../../Image/back1.jpg);
+            background-size:cover;
+        }
+         body {
+            background:url(../../Image/back.jpg);
+            background-size:cover;
+        }
+        #homediv {
+             width:800px;
+             height:400px;
+             position:relative;
+             left:300px;   
+             
+             background-color:aliceblue;
+             background-size:cover;      
+        }
+        #datadiv {
+            width:150px;
+            height:130px;
+            font-family:"微软雅黑";
+            font-size:14px;
+            border:inset;
+        }
+        #setdiv {
+            width:250px;
+            height:230px;
+            
+        }
+        #messagediv {
+            width:550px;
+            height:80px;
+            
+            position:relative;
+            left:250px;
+            top:-360px;
+        }
+        #listdiv {
+            width:550px;
+            height:280px;
+            
+            position:relative;
+            left:250px;
+            top:-360px;
+        }
+        #underdiv {
+            width:800px;
+            height:40px;
+            
+            position:relative;
+            top:-360px;
+        }
+    </style>
 </head>
 <body>
-    欢迎你：@Session["Name"].ToString() 
+    <div>
+        <div id="titlediv">
+            <div id="title" style="color:white">56工作室</div><br />
+            <div id="sctitle" style="color:white">56 Team</div>
+        </div>
+        <div id="weldiv">&hearts;&hearts;欢迎你：@Session["Name"].ToString()!&hearts;&hearts;</div>
+        <div id="homediv">
+            <div id="datadiv">
+                <table>
+                    <tr><td style="color:blue;">用户名：@Session["Name"].ToString()</td></tr>
+                    <tr><td style="color:blue;">专业：@Session["Major"].ToString()</td></tr>
+                    <tr><td style="color:blue;">院系：@Session["Department"].ToString()</td></tr>
+                    <tr><td style="color:blue;">年级：@Session["Grade"].ToString()</td></tr>
+                    <tr><td style="color:blue;">角色：@Session["Limit"].ToString()</td></tr>
+                </table>
+            </div>
+            <div id="setdiv">
+                <a href="Home/MessageChange" class="btn btn-primary btn-lg active" role="button">个人信息设置</a>
+            </div>
+            <div id="messagediv"></div>
+            <div id="listdiv"></div>
+            <div id="underdiv"></div>
+        </div>
+    </div>
+    @*欢迎你：@Session["Name"].ToString() 
     <img src="~/Image/20141109052147735_easyicon_net_128.ico" />
     <table>
         <tr><td>用户名：@Session["Name"].ToString()</td></tr>
@@ -29,7 +134,7 @@
     <a href="#" class="btn btn-default btn-lg active" role="button">留言板</a>
     <button type="button" class="btn btn-lg btn-primary">56工作室简介</button>
     <button type="button" class="btn btn-default btn-lg" disabled="disabled">查看小组信息</button>
-    @Html.ActionLink("退出", "Index", "Login")
+    @Html.ActionLink("退出", "Index", "Login")*@
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 

@@ -1,4 +1,3 @@
-Z:\PCode\project\56team\56Team_manage\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 Z:\PCode\project\56team\56Team_manage\Model\bin\Debug\Model.dll
 Z:\PCode\project\56team\56Team_manage\Model\bin\Debug\Model.pdb
 Z:\PCode\project\56team\56Team_manage\Model\bin\Debug\EntityFramework.dll

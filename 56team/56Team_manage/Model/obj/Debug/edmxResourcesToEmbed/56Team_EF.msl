@@ -57,6 +57,7 @@
           <ScalarProperty Name="user_psw_quest" ColumnName="user_psw_quest" />
           <ScalarProperty Name="user_psw_answ" ColumnName="user_psw_answ" />
           <ScalarProperty Name="user_limit" ColumnName="user_limit" />
+          <ScalarProperty Name="user_realname" ColumnName="user_realname" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

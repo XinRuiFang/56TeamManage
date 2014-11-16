@@ -56,6 +56,7 @@
     <Property Name="user_psw_quest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="user_psw_answ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="user_limit" Type="Int32" Nullable="false" />
+    <Property Name="user_realname" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="C56rms_file" Relationship="Self.C56rms_file_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_file" />
     <NavigationProperty Name="C56rms_group" Relationship="Self.C56rms_group_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_group" />
     <NavigationProperty Name="C56rms_inform_table" Relationship="Self.C56rms_inform_002dtable_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_inform_table" />

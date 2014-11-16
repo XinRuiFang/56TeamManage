@@ -199,6 +199,8 @@
     <Content Include="Image\20141109052147735_easyicon_net_128.ico" />
     <Content Include="Image\5c1f6acc79984b8f1e8ece9b19ca7afe.jpg" />
     <Content Include="Image\back.jpg" />
+    <Content Include="Image\back1.jpg" />
+    <Content Include="Image\back2.jpg" />
     <Content Include="Scripts\bootstrap.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.css" />

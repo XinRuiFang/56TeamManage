@@ -53,6 +53,7 @@
     <Property Name="user_psw_quest" Type="varchar" MaxLength="20" />
     <Property Name="user_psw_answ" Type="varchar" MaxLength="20" />
     <Property Name="user_limit" Type="int" Nullable="false" />
+    <Property Name="user_realname" Type="varchar" MaxLength="5" />
   </EntityType>
   <EntityType Name="56rms_user_role">
     <Key>

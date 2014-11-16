@@ -18,12 +18,20 @@ namespace DAL
         {
             
             Model.C56rms_user auser=null;
-            List<Model.C56rms_user> ulist = db.C56rms_user.Where(user).ToList();
-            foreach (Model.C56rms_user aUser in ulist)
+            try
             {
-                auser= aUser;
+                List<Model.C56rms_user> ulist = db.C56rms_user.Where(user).ToList();
+                foreach (Model.C56rms_user aUser in ulist)
+                {
+                    auser = aUser;
+                }
+                return auser;
             }
-            return auser;
+            catch 
+            {
+                return null;
+            }
+            
         }
         public static bool InsertNewUser(Model.C56rms_user userModel)
         {

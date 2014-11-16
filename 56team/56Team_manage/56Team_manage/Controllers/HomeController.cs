@@ -24,9 +24,26 @@ namespace _56Team_manage.Controllers
             
                      
         }
+        [HttpPost]
+        public ActionResult Index(FormCollection form)
+        {
+            if (Session["id"] == null)
+            {
+                Response.Write("<script>alert('登陆超时！将返回主界面！');</script>");
+                return View("~/views/Login/Index.cshtml");
+            }
+
+            return View();
+        }
 
         [HttpGet]
         public ActionResult MessageChange()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MessageChange(FormCollection form)
         {
             return View();
         }
