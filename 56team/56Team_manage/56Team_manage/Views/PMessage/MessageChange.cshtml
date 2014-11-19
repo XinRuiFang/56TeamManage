@@ -1,0 +1,129 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>个人信息设置</title>
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            background: url(../../Image/back.jpg);
+            background-size: cover;
+        }
+
+        #title {
+            font-family: "微软雅黑";
+            font-size: 50px;
+            position: relative;
+            top: 20px;
+            text-decoration: underline;
+        }
+
+        #sctitle {
+            font-family: "微软雅黑";
+            font-size: 30px;
+        }
+
+        #titlediv {
+            background: url(../../Image/5c1f6acc79984b8f1e8ece9b19ca7afe.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 800px;
+            height: 140px;
+            border-bottom-color: aliceblue;
+            border-style: inset;
+            position: relative;
+            left: 300px;
+        }
+
+        #homediv {
+            width: 800px;
+            height: 700px;
+            position: relative;
+            left: 400px;
+        }
+
+        #vimg {
+            position: relative;
+            top: 552px;
+        }
+    </style>
+</head>
+<body>
+    <div id="backdiv">
+        <div id="titlediv">
+            <div id="title" style="color:white">个人信息修改</div><br />
+            <div id="sctitle" style="color:white">Personal Massage Modufication</div>
+        </div>
+        <div id="homediv">
+            @using (Html.BeginForm("MessageChange", "PMessage", FormMethod.Post))
+            {
+
+                <div class="col-xs-2" style=" width:600px;height:64px;position:relative;top:10px;">
+                    <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">你的真实姓名:</label><br />
+                    <input type="text" name="userRealName" id="textboxusername" class="form-control" placeholder="...">
+                </div>
+                <div class="col-xs-2" style=" width:600px;height:64px;position:relative;top:10px;">
+                    <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">性别:</label><br />
+                    <input type="radio" name="Gender" value="1" />男&nbsp;&nbsp;
+                    <input type="radio" name="Gender" value="0" />女
+                </div>
+                <div class="col-xs-2" style=" width:600px;height:64px;position:relative;top:10px;">
+                    <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">年级:</label><br />
+                    <input type="radio" name="Grade" value="1" />一年级
+                    <input type="radio" name="Grade" value="2" />二年级
+                    <input type="radio" name="Grade" value="3" />三年级
+                    <input type="radio" name="Grade" value="4" />四年级
+                    <input type="radio" name="Grade" value="5" />五年级
+                    <input type="radio" name="Grade" value="6" />其他
+                </div>
+                <div class="col-xs-2" style=" width:600px;height:64px;position:relative;top:10px;">
+                    <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">寝室号: </label><br />
+                    <input type="text" name="userDepartment" id="textboxuserdepartment" class="form-control" placeholder="...(例如：8号楼326填写8326)">
+                </div>
+                <div class="col-xs-2" style=" width:600px;height:70px;position:relative;top:10px;">
+                    <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">学院:</label><br />
+                    <input type="radio" name="Major" value="1" />经济管理学院
+                    <input type="radio" name="Major" value="2" />外国语学院
+                    <input type="radio" name="Major" value="3" />理学院
+                    <input type="radio" name="Major" value="4" />软件学院
+                    <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="Major" value="5" />艺术学院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="Major" value="6" />其他
+                </div>
+                <div class="col-xs-2" style=" width:600px;height:64px;position:relative;top:10px;">
+                    <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">手机号码:</label><br />
+                    <input type="text" name="userTel" id="textboxtel" class="form-control" placeholder="...">
+                </div>
+                <div class="col-xs-2" style=" width:600px;height:64px;position:relative;top:10px;">
+                    <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">qq号码:</label><br />
+                    <input type="text" name="userQq" id="textboxqq" class="form-control" placeholder="...">
+                </div>
+                <div class="col-xs-2" style=" width:600px;height:64px;position:relative;top:10px;">
+                    <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">邮箱: </label><br />
+                    <input type="text" name="userMail" id="textboxmail" class="form-control" placeholder="...(以@xx.com结尾)">
+                </div>
+                <div class="col-xs-2" style=" width:600px;height:64px;position:relative;top:10px;">
+                    <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">验证码:</label><br />
+                    <input type="text" class="form-control" name="vcode" id="vcode" placeholder="Verification Code...">
+                </div>
+                <img id="vimg" src="/Vcode/getVcode" />
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info" id="btn" style="position: relative; top: 17px;left:135px;">提交</button>
+                        <div style="font-family:'微软雅黑';font-size:12px;position:relative;left:350px;top:-10px;">@Html.ActionLink("返回", "PersonalMessage", "PMessage")</div>
+                    </div>
+                </div>
+
+            }
+
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
