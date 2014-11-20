@@ -1,0 +1,87 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>密码服务</title>
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+         #titlediv {
+             
+             background:url(../../Image/5c1f6acc79984b8f1e8ece9b19ca7afe.jpg);
+             background-repeat:no-repeat;
+             background-size:cover;                         
+             width:800px;
+             height:140px;     
+             border-bottom-color:aliceblue;
+             border-style:inset;
+             position:relative;
+             left:300px;
+        }
+        #title {
+            font-family:"微软雅黑";
+            font-size:50px;
+            position:relative;
+            top:20px;
+            text-decoration:underline;
+        }
+        #sctitle {
+            font-family:"微软雅黑";
+            font-size:30px;
+        }
+        body {
+            background:url(../../Image/back.jpg);
+            background-size:cover;
+        }
+         #homediv {
+            width: 800px;            
+            position: relative;
+            left: 400px;
+            font-family: "微软雅黑";
+            font-size: 20px;
+        }
+          #weldiv {
+            width:800px;
+            height:50px; 
+            position:relative;
+            left:-100px;               
+            font-family:"微软雅黑";
+            font-size:20px;
+            background:url(../../Image/back1.jpg);
+            background-size:cover;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="titlediv">
+            <div id="title" style="color:white">密码服务</div><br />
+            <div id="sctitle" style="color:white">Password Service</div>
+        </div>
+        <div id="homediv">
+            <div id="weldiv">尊敬的用户：@Model.Name.ToString(),你的密码安全级别为：@ViewBag.level。</div>
+            <div style="width:800px;position:relative;left:-100px;font-family:'微软雅黑';font-size:15px;border:groove;background-color:aliceblue;">
+                密码级别判定规则：<br />
+                级别：低&nbsp;&nbsp;&nbsp;密码仅由纯数字组成，且没有设置密码提示问题。<br />
+                级别：中&nbsp;&nbsp;&nbsp;密码由穿插字符串组成，但没有设置密码提示问题。<br />
+                级别：中上&nbsp;&nbsp;&nbsp;密码仅由纯数字组成，但设置了密码提示问题。<br />
+                级别：高&nbsp;&nbsp;&nbsp;密码由穿插字符串组成，且设置了密码提示问题。<br />
+            </div>
+            快去：<br />
+            <div class="col-xs-2" style="font-family:'微软雅黑';font-size:20px;position:relative;top:25px;">             
+                <a href="../Pwd/SettingPwdQuest" class="btn btn-primary btn-lg active" role="button">设置密码提示问题</a><br /><br />
+                <a href="../Pwd/ModifPwd" class="btn btn-primary btn-lg active" role="button">修改密码</a>
+            </div>
+            <div class="col-xs-2" style="position:relative; top:150px;left:400px;" >
+                <div style="font-family:'微软雅黑';font-size:12px;">@Html.ActionLink("返回", "Index", "Home")</div>
+            </div>
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

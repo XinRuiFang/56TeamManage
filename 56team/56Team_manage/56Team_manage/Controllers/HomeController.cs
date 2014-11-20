@@ -14,38 +14,28 @@ namespace _56Team_manage.Controllers
         public ActionResult Index()
         {
 
-            if (Session["id"] == null)
+            if (Session["Name"] == null)
             {
                 Response.Write("<script>alert('登陆超时！将返回主界面！');</script>");
                 return View("~/views/Login/Index.cshtml");
             }
-
-            return View();       
+            dynamic userModel = Others.GetRModelBySession.GetModelForView(Session["Name"].ToString());
+            return View(userModel);       
             
                      
         }
         [HttpPost]
         public ActionResult Index(FormCollection form)
         {
-            if (Session["id"] == null)
+            if (Session["Name"] == null)
             {
                 Response.Write("<script>alert('登陆超时！将返回主界面！');</script>");
                 return View("~/views/Login/Index.cshtml");
             }
-
-            return View();
+            dynamic userModel = Others.GetRModelBySession.GetModelForView(Session["Name"].ToString());
+            return View(userModel);
         }
 
-        [HttpGet]
-        public ActionResult MessageChange()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult MessageChange(FormCollection form)
-        {
-            return View();
-        }
+       
     }
 }

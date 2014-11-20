@@ -20,7 +20,17 @@ namespace _56Team_manage.Controllers
         public ActionResult Index(FormCollection form)
         {
             string userName = form["userName"];
+            if (userName.Length < 6 || userName.Length > 13)
+            {
+                Response.Write("<script>alert('用户名格式不符合标准，请输入6-13个字符！');</script>");
+                return View();
+            }
             string password = form["userPwd"];
+            if (password.Length < 6 || password.Length > 20) 
+            {
+                Response.Write("<script>alert('密码格式不符合标准，请输入6-20个字符！');</script>");
+                return View();
+            }
             string passwordSconed = form["userPedSconed"];
             if (password != passwordSconed)
             {
@@ -37,8 +47,9 @@ namespace _56Team_manage.Controllers
                 if (BLL.RegisterBLL.NewRegister(user))
                 {
                     Response.Write("<script>alert('注册成功！确认后进入主界面！');</script>");
-                    Session["Name"] = user.user_name;                
-                    return View("~/views/Home/Index.cshtml");
+                    Session["Name"] = userName;
+                    dynamic userModel = Others.GetRModelBySession.GetModelForView(Session["Name"].ToString());
+                    return View("~/views/Home/Index.cshtml",userModel);
                 }
                 else
                 {
@@ -54,6 +65,36 @@ namespace _56Team_manage.Controllers
             }
             
         }
-
+        public ActionResult TestUserName(FormCollection form)
+        {
+            string userName = form["userName"];
+            if(userName != null && userName != "")
+            {
+                if (userName.Length >= 6 && userName.Length <= 13)
+                {
+                    if (BLL.GetDataBaseModel.GetModelBySession(userName) != null)
+                    {
+                        Response.Write("<script>alert('该用户名已被使用！');</script>");
+                        return View("Index");
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('恭喜！该用户名可以使用！');</script>");
+                        return View("Index");
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('请输入正确格式的用户名！');</script>");
+                    return View("Index");
+                }
+            }
+            else
+            {
+                Response.Write("<script>alert('请输入用户名！');</script>");
+                return View("Index");
+            }
+            
+        }
     }
 }

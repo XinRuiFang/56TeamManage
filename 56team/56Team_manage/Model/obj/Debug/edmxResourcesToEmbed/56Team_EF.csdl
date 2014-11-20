@@ -50,9 +50,9 @@
     <Property Name="user_grade" Type="Int32" />
     <Property Name="user_department" Type="Int32" />
     <Property Name="user_major" Type="Int32" />
-    <Property Name="user_tel" Type="Int32" />
-    <Property Name="user_qq" Type="Int32" />
-    <Property Name="user_email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="user_tel" Type="Int64" />
+    <Property Name="user_qq" Type="Int64" />
+    <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="user_psw_quest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="user_psw_answ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="user_limit" Type="Int32" Nullable="false" />

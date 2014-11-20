@@ -26,8 +26,8 @@ namespace Model
         public Nullable<int> user_grade { get; set; }
         public Nullable<int> user_department { get; set; }
         public Nullable<int> user_major { get; set; }
-        public Nullable<int> user_tel { get; set; }
-        public Nullable<int> user_qq { get; set; }
+        public Nullable<long> user_tel { get; set; }
+        public Nullable<long> user_qq { get; set; }
         public string user_email { get; set; }
         public string user_psw_quest { get; set; }
         public string user_psw_answ { get; set; }

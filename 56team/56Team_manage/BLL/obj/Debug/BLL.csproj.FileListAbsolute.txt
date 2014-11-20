@@ -10,3 +10,15 @@ Z:\PCode\project\56team\56Team_manage\BLL\bin\Debug\EntityFramework.xml
 Z:\PCode\project\56team\56Team_manage\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
 Z:\PCode\project\56team\56Team_manage\BLL\obj\Debug\BLL.dll
 Z:\PCode\project\56team\56Team_manage\BLL\obj\Debug\BLL.pdb
+E:\PCode\project\56team\56Team_manage\BLL\bin\Debug\BLL.dll
+E:\PCode\project\56team\56Team_manage\BLL\bin\Debug\BLL.pdb
+E:\PCode\project\56team\56Team_manage\BLL\bin\Debug\DAL.dll
+E:\PCode\project\56team\56Team_manage\BLL\bin\Debug\Model.dll
+E:\PCode\project\56team\56Team_manage\BLL\bin\Debug\EntityFramework.dll
+E:\PCode\project\56team\56Team_manage\BLL\bin\Debug\DAL.pdb
+E:\PCode\project\56team\56Team_manage\BLL\bin\Debug\Model.pdb
+E:\PCode\project\56team\56Team_manage\BLL\bin\Debug\EntityFramework.xml
+E:\PCode\project\56team\56Team_manage\BLL\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\PCode\project\56team\56Team_manage\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+E:\PCode\project\56team\56Team_manage\BLL\obj\Debug\BLL.dll
+E:\PCode\project\56team\56Team_manage\BLL\obj\Debug\BLL.pdb

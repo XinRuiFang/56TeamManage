@@ -43,7 +43,7 @@
             background:url(../../Image/back1.jpg);
             background-size:cover;
         }
-         body {
+        body {
             background:url(../../Image/back.jpg);
             background-size:cover;
         }
@@ -99,19 +99,21 @@
             <div id="title" style="color:white">56工作室</div><br />
             <div id="sctitle" style="color:white">56 Team</div>
         </div>
-        <div id="weldiv">&hearts;&hearts;欢迎你：@Session["Name"].ToString()!&hearts;&hearts;</div>
+        <div id="weldiv">&hearts;&hearts;欢迎你：@Model.Name.ToString()!&hearts;&hearts;</div>
         <div id="homediv">
             <div id="datadiv">
                 <table>
-                    <tr><td style="color:blue;">用户名：@Session["Name"].ToString()</td></tr>
-                    <tr><td style="color:blue;">专业：@Session["Major"].ToString()</td></tr>
-                    <tr><td style="color:blue;">院系：@Session["Department"].ToString()</td></tr>
-                    <tr><td style="color:blue;">年级：@Session["Grade"].ToString()</td></tr>
-                    <tr><td style="color:blue;">角色：@Session["Limit"].ToString()</td></tr>
+                    <tr><td style="color:blue;">用户名：@Model.Name.ToString()</td></tr>
+                    <tr><td style="color:blue;">姓名：@Model.Realname.ToString()</td></tr>
+                    <tr><td style="color:blue;">院系：@Model.Major.ToString()</td></tr>
+                    <tr><td style="color:blue;">宿舍：@Model.Department.ToString()</td></tr>
+                    <tr><td style="color:blue;">年级：@Model.Grade.ToString()</td></tr>
+                    <tr><td style="color:blue;">角色：@Model.Limit.ToString()</td></tr>
                 </table>
             </div>
-            <div id="setdiv">
-                <a href="Home/MessageChange" class="btn btn-primary btn-lg active" role="button">个人信息设置</a>
+            <div id="setdiv">                                      
+                <a href="PMessage/PersonalMessage" class="btn btn-primary btn-lg active" role="button">查看个人信息</a>
+                <a href="Pwd/Index" class="btn btn-primary btn-lg active" role="button">密码修改找回</a>
             </div>
             <div id="messagediv"></div>
             <div id="listdiv"></div>

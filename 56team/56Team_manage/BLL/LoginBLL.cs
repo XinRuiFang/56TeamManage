@@ -12,7 +12,7 @@ namespace BLL
     {
         public static bool GetUserInformtion(Model.C56rms_user user)
         {
-            Model.C56rms_user getUser= DAL.User.Getuser(u=>u.user_name==user.user_name);
+            Model.C56rms_user getUser = DAL.User.Getuser(u => u.user_name == user.user_name);
             if (getUser != null)
             {
                 if (getUser.password == user.password)
@@ -28,6 +28,10 @@ namespace BLL
             {
                 return false;
             }
+        }
+        public static Model.C56rms_user GetModel(string SessionName)
+        {
+            return DAL.User.Getuser(u => u.user_name == SessionName);
         }
     }
 }

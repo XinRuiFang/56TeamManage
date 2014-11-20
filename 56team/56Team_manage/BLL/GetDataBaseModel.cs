@@ -12,5 +12,9 @@ namespace BLL
         {
             return  DAL.User.Getuser(u => u.user_name == user.user_name);
         }
+        public static Model.C56rms_user GetModelBySession(string userName)
+        {
+            return DAL.User.Getuser(u => u.user_name == userName);
+        }
     }
 }

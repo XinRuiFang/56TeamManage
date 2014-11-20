@@ -1,12 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22310.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_56Team_manage", "56Team_manage\_56Team_manage.csproj", "{BB7B1E8A-93D1-4185-BFB7-724A77365E7A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_56Team_manage.Tests", "_56Team_manage.Tests\_56Team_manage.Tests.csproj", "{8B514270-70F7-4349-934F-C32DD9149E1B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{1A49B094-2947-4851-8EDC-2B3906B90BEA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{8B2358F6-E791-415F-A80A-06F0F2942262}"
@@ -14,6 +10,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{59E7055D-990F-4483-A3AF-4DC6AF1040DD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{A0A093DB-7255-4F07-BFC0-EE28AB78BEEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_56Team_manage", "56Team_manage\_56Team_manage.csproj", "{BB7B1E8A-93D1-4185-BFB7-724A77365E7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_56Team_manage.Tests", "_56Team_manage.Tests\_56Team_manage.Tests.csproj", "{8B514270-70F7-4349-934F-C32DD9149E1B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{01EE038D-718E-42E2-863D-1C6CBCE456C0}"
 EndProject

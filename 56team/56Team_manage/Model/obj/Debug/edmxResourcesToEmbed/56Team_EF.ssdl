@@ -47,9 +47,9 @@
     <Property Name="user_grade" Type="int" />
     <Property Name="user_department" Type="int" />
     <Property Name="user_major" Type="int" />
-    <Property Name="user_tel" Type="int" />
-    <Property Name="user_qq" Type="int" />
-    <Property Name="user_email" Type="varchar" MaxLength="30" />
+    <Property Name="user_tel" Type="bigint" />
+    <Property Name="user_qq" Type="bigint" />
+    <Property Name="user_email" Type="varchar" MaxLength="50" />
     <Property Name="user_psw_quest" Type="varchar" MaxLength="20" />
     <Property Name="user_psw_answ" Type="varchar" MaxLength="20" />
     <Property Name="user_limit" Type="int" Nullable="false" />
