@@ -253,6 +253,9 @@
     <Content Include="Views\Pwd\Index.cshtml" />
     <Content Include="Views\Pwd\ModifPwd.cshtml" />
     <Content Include="Views\Pwd\SettingPwdQuest.cshtml" />
+    <Content Include="Views\Login\PwdFind.cshtml" />
+    <Content Include="Views\Login\PwdGet.cshtml" />
+    <Content Include="Views\Login\ModifPwd.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
