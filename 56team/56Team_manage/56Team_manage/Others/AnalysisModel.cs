@@ -125,5 +125,9 @@ namespace _56Team_manage.Others
                 return "暂无信息";
             }
         }
+        public static string GetGroup(Model.C56rms_user user)
+        {
+            return null;
+        }
     }
 }
