@@ -1,0 +1,98 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>管理员区域</title>
+    <link href="~/Scripts/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            background: url(../../Image/back.jpg);
+            background-size: cover;
+        }
+
+        #title {
+            font-family: "微软雅黑";
+            font-size: 50px;
+            position: relative;
+            top: 20px;
+            text-decoration: underline;
+        }
+
+        #sctitle {
+            font-family: "微软雅黑";
+            font-size: 30px;
+        }
+
+        #titlediv {
+            background: url(../../Image/5c1f6acc79984b8f1e8ece9b19ca7afe.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 800px;
+            height: 140px;
+            border-bottom-color: aliceblue;
+            border-style: inset;
+            position: relative;
+            left: 300px;
+        }
+
+        #weldiv {
+            width: 800px;
+            height: 50px;
+            position: relative;
+            left: 300px;
+            font-family: "微软雅黑";
+            font-size: 20px;
+            background: url(../../Image/back1.jpg);
+            background-size: cover;
+        }
+
+        #homediv {
+            width: 800px;
+            height: 400px;
+            position: relative;
+            left: 300px;
+            background-color: aliceblue;
+            background-size: cover;
+        }
+        #btnmsg {
+            width:150px;
+            height:100px;
+            background:url(../../Image/back1.jpg);
+            font-family:"幼圆";
+            font-size:28px;
+            font-weight:bold;
+            color:blue;
+        }
+    </style>
+    <script>
+    function tz() {
+        window.location.href = "../Manage/InfoGroupPermit";
+    }
+    </script>
+
+</head>
+<body>
+    <div>
+        <div id="titlediv">
+            <div id="title" style="color:white">管理员区域</div><br />
+            <div id="sctitle" style="color:white">Manage Place</div>
+        </div>
+        <div id="weldiv">欢迎你，管理员：@Session["Name"].ToString()！</div>
+        <div id="homediv">
+            <div>
+                <button id="btnmsg" onclick="tz()">进组申请审批</button>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

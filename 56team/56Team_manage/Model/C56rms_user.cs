@@ -33,6 +33,8 @@ namespace Model
         public string user_psw_answ { get; set; }
         public int user_limit { get; set; }
         public string user_realname { get; set; }
+        public Nullable<int> user_group { get; set; }
+        public Nullable<int> grouppsIsTrue { get; set; }
     
         public virtual ICollection<C56rms_file> C56rms_file { get; set; }
         public virtual C56rms_group C56rms_group { get; set; }

@@ -136,19 +136,23 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Controllers\PMessageController.cs" />
     <Compile Include="Controllers\PwdController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\UserInGroupController.cs" />
     <Compile Include="Controllers\VcodeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Others\AnalysisModel.cs" />
     <Compile Include="Others\CAPTCHA.cs" />
+    <Compile Include="Others\CheckModel.cs" />
     <Compile Include="Others\CheckPwdLevel.cs" />
     <Compile Include="Others\GetRModelBySession.cs" />
     <Compile Include="Others\GetTable.cs" />
+    <Compile Include="Others\TestForIntroduce.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +263,9 @@
     <Content Include="Views\Login\PwdGet.cshtml" />
     <Content Include="Views\Login\ModifPwd.cshtml" />
     <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\UserInGroup\Index.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\InfoGroupPermit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -67,5 +67,12 @@ namespace DAL
             db.SaveChanges();
             return true;
         }
+        public static bool SetUserLimit(Model.C56rms_user user)
+        {
+            Model.C56rms_user auser = db.C56rms_user.Where(u => u.user_name == user.user_name).FirstOrDefault();
+            auser.grouppsIsTrue = 1;
+            auser.user_limit = 1;
+            return db.SaveChanges() == 1 ? true : false;
+        }
     }
 }

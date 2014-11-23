@@ -35,5 +35,9 @@ namespace BLL
             ////}
             //return hTb;
         }
+        public static List<C56rms_user> GetPermitList()
+        {
+            return DAL.Message.GetPermitList();
+        }
     }
 }

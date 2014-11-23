@@ -26,5 +26,13 @@ namespace BLL
             return DAL.User.SetUserMessage(user);
 
         }
+        public static bool SetPermit(Model.C56rms_user user)
+        {
+            return DAL.Message.SetUserPermit(user);
+        }
+        public static bool SetUserLimit(Model.C56rms_user user)
+        {
+            return DAL.User.SetUserLimit(user);
+        }
     }
 }

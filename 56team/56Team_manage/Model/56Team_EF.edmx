@@ -55,10 +55,12 @@
           <Property Name="user_tel" Type="bigint" />
           <Property Name="user_qq" Type="bigint" />
           <Property Name="user_email" Type="varchar" MaxLength="50" />
-          <Property Name="user_psw_quest" Type="varchar" MaxLength="20" />
-          <Property Name="user_psw_answ" Type="varchar" MaxLength="20" />
+          <Property Name="user_psw_quest" Type="varchar" MaxLength="50" />
+          <Property Name="user_psw_answ" Type="varchar" MaxLength="50" />
           <Property Name="user_limit" Type="int" Nullable="false" />
           <Property Name="user_realname" Type="varchar" MaxLength="5" />
+          <Property Name="user_group" Type="int" />
+          <Property Name="grouppsIsTrue" Type="int" />
         </EntityType>
         <EntityType Name="56rms_user_role">
           <Key>
@@ -197,10 +199,12 @@
           <Property Name="user_tel" Type="Int64" />
           <Property Name="user_qq" Type="Int64" />
           <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="user_psw_quest" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="user_psw_answ" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="user_psw_quest" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_psw_answ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="user_limit" Type="Int32" Nullable="false" />
           <Property Name="user_realname" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="user_group" Type="Int32" />
+          <Property Name="grouppsIsTrue" Type="Int32" />
           <NavigationProperty Name="C56rms_file" Relationship="Self.C56rms_file_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_file" />
           <NavigationProperty Name="C56rms_group" Relationship="Self.C56rms_group_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_group" />
           <NavigationProperty Name="C56rms_inform_table" Relationship="Self.C56rms_inform_002dtable_ibfk_1" FromRole="C56rms_user" ToRole="C56rms_inform_table" />
@@ -349,6 +353,8 @@
                 <ScalarProperty Name="user_psw_answ" ColumnName="user_psw_answ" />
                 <ScalarProperty Name="user_limit" ColumnName="user_limit" />
                 <ScalarProperty Name="user_realname" ColumnName="user_realname" />
+                <ScalarProperty Name="user_group" ColumnName="user_group" />
+                <ScalarProperty Name="grouppsIsTrue" ColumnName="grouppsIsTrue" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

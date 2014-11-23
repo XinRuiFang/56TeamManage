@@ -58,6 +58,8 @@
           <ScalarProperty Name="user_psw_answ" ColumnName="user_psw_answ" />
           <ScalarProperty Name="user_limit" ColumnName="user_limit" />
           <ScalarProperty Name="user_realname" ColumnName="user_realname" />
+          <ScalarProperty Name="user_group" ColumnName="user_group" />
+          <ScalarProperty Name="grouppsIsTrue" ColumnName="grouppsIsTrue" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
