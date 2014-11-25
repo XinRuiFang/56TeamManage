@@ -42,8 +42,8 @@
          #messagediv {
             width: 800px;
             height: 700px;
-            position: relative;
-            left: 400px;
+            margin-left:20%;
+            margin-right:20%;
         }
     </style>
 </head>
@@ -54,34 +54,51 @@
             <div id="sctitle" style="color:white">Personal Massage</div>
         </div>
         <div id="messagediv">
-            <div class="col-xs-2" style=" width:1000px;height:64px;position:relative;top:10px;">
+            <div class="col-xs-2" style=" width:800px;height:64px;position:relative;top:10px;">
                 <div style="font-family:'微软雅黑';font-size:12px;width:1000px;height:200px;position:relative;top:10px;">@Html.ActionLink("返回", "Index", "Home")</div>
             </div>
             
-            <div class="col-xs-2" style=" width:1000px;height:64px;position:relative;top:10px;">
-                <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">用户：@Model.Name.ToString()，你的个人信息如下：</label><br />
-            </div>
-            <div class="col-xs-2" style=" width:1000px;height:64px;position:relative;top:10px;">
-                <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">你的真实姓名:@Model.Realname.ToString()</label><br />
-            </div>
-            <div class="col-xs-2" style=" width:1000px;height:64px;position:relative;top:10px;">
-                <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">年级:@Model.Grade.ToString()</label><br />
-            </div>
-            <div class="col-xs-2" style=" width:1000px;height:64px;position:relative;top:10px;">
-                <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">院系:@Model.Major.ToString()</label><br />
-            </div>
-            <div class="col-xs-2" style=" width:1000px;height:64px;position:relative;top:10px;">
-                <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">宿舍:@Model.Department.ToString()</label><br />
-            </div>
-            <div class="col-xs-2" style=" width:1000px;height:64px;position:relative;top:10px;">
-                <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">电话号码:@Model.Tel.ToString()</label><br />
-            </div>
-            <div class="col-xs-2" style=" width:1000px;height:64px;position:relative;top:10px;">
-                <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">QQ:@Model.Qq.ToString()</label><br />
-            </div>
-            <div class="col-xs-2" style=" width:1000px;height:64px;position:relative;top:10px;">
-                <label class="col-sm-4 control-label" style="font-family:'微软雅黑';font-size:15px;">邮箱:@Model.Mail.ToString()</label><br />
-            </div>
+            <div class="col-xs-2" style="width:800px;">
+                <table border="1" style="text-align:center;border-collapse:collapse;background-color:aliceblue;font-family:'微软雅黑';font-size:15px;" class="table">
+                    <tr>
+                        <th>
+                    用户：@Model.Name.ToString()，你的个人信息如下：</th>
+
+                    </tr>
+                    <tr>
+                        <td>你的真实姓名:</td>
+                        <td>@Model.Realname.ToString()</td>
+                    </tr>
+                    <tr>
+                        <td>年级:</td>
+                        <td>@Model.Grade.ToString()</td>
+                    </tr>
+                    <tr>
+                        <td>院系:</td>
+                        <td>@Model.Major.ToString()</td>
+                    </tr>
+                    <tr>
+                        <td>宿舍:</td>
+                        <td>@Model.Department.ToString()</td>
+                    </tr>
+                    <tr>
+                        <td>电话号码:</td>
+                        <td>@Model.Tel.ToString()</td>
+                    </tr>
+                    <tr>
+                        <td>QQ:</td>
+                        <td>@Model.Qq.ToString()</td>
+                    </tr>
+                    <tr>
+                        <td>邮箱:</td>
+                        <td>@Model.Mail.ToString()</td>
+                    </tr>
+                    
+                </table>
+                    
+                    
+</div>
+      
             <div class ="col-xs-2" style=" width:1000px;height:130px;position:relative;top:10px;">
                 <a href="../PMessage/MessageChange" class="btn btn-primary btn-lg active" role="button">修改个人信息</a><br /><br />
                 <a href="../PMessage/DeletePMessage" class="btn btn-primary btn-lg active" role="button">清空全部信息</a>                

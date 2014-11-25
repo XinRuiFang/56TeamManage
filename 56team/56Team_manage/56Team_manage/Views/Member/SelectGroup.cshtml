@@ -39,28 +39,30 @@
             position: relative;
             left: 300px;
         }
+
         #weldiv {
-            width:800px;
-            height:50px; 
-            position:relative;
-            left:300px;              
-            font-family:"微软雅黑";
-            font-size:20px;
-            background:url(../../Image/back1.jpg);
-            background-size:cover;
+            width: 800px;
+            height: 50px;
+            position: relative;
+            left: 300px;
+            font-family: "微软雅黑";
+            font-size: 20px;
+            background: url(../../Image/back1.jpg);
+            background-size: cover;
         }
+
         #selectdiv {
-             width:800px;
-             font-family:"微软雅黑";
-             position:relative;
-             left:300px; 
+            width: 800px;
+            font-family: "微软雅黑";
+            position: relative;
+            left: 300px;
         }
     </style>
 
 </head>
 <body>
     <div>
-        <div id="titlediv"> 
+        <div id="titlediv">
             <div id="title" style="color:white">在组人员信息</div><br />
             <div id="sctitle" style="color:white">Personnel information</div>
         </div>
@@ -73,14 +75,23 @@
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="Index">查看所有人员</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="SelectGroup">按组查看</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="SelectAllMems">按组查看</a></li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="SelectGrade">按年级查看</a></li>
                     <li role="presentation"><a role="menuitem" tabindex="-1" href="SelectMajor">按院系查看</a></li>
-                    
+
                 </ul>
-                
-                    <div style="font-family:'微软雅黑';font-size:12px;position:relative;left:350px;top:-20px;">@Html.ActionLink("返回", "Index", "Home")</div>
-                
+
+                <div style="font-family:'微软雅黑';font-size:12px;position:relative;left:350px;top:-20px;">@Html.ActionLink("返回", "Index", "Home")</div>
+
+            </div>
+            <div>
+                <ul class="nav nav-tabs nav-justified" role="tablist">
+                    <li role="presentation"><a href="GetCSharp">C#</a></li>
+                    <li role="presentation"><a href="GetJava">Java</a></li>
+                    <li role="presentation"><a href="GetUI">UI</a></li>
+                    <li role="presentation"><a href="GetIO">运维</a></li>
+                    <li role="presentation"><a href="GetDb">数据库</a></li>
+                </ul>
             </div>
             <div>
 
@@ -95,69 +106,73 @@
                     </tr>
                     @foreach (var item in Model)
                     {
-                        
+
                         <tr>
-                            <td>@item.user_name</td>                     
+                            <td>@item.user_name</td>
                             <td>@item.user_realname</td>
-                            <td>@if (item.user_gender == "1")
-                                {                                   
+                            <td>
+                                @if (item.user_gender == "1")
+                                {
                                     @:@("男")
                                 }
-                                @if (item.user_gender == "0")
-                                {
-                                    @:@("女")
-                                }                        
-                            </td>
-                            <td>@if (item.user_major.ToString() == "1")
-                                {
-                                     @:@("经济管理学院")
+                            @if (item.user_gender == "0")
+                            {
+                                @:@("女")
                                 }
-                                @if (item.user_major.ToString() == "2")
-                                {
-                                    @:@("外国语学院")
+                        </td>
+                        <td>
+                            @if (item.user_major.ToString() == "1")
+                            {
+                                @:@("经济管理学院")
                                 }
-                                @if (item.user_major.ToString() == "3")
-                                {
-                                    @:@("理学院")
+                        @if (item.user_major.ToString() == "2")
+                        {
+                            @:@("外国语学院")
                                 }
-                                @if (item.user_major.ToString() == "4")
-                                {
-                                    @:@("软件学院")
+                        @if (item.user_major.ToString() == "3")
+                        {
+                            @:@("理学院")
                                 }
-                                @if (item.user_major.ToString() == "5")
-                                {
-                                    @:@("艺术学院")
+                        @if (item.user_major.ToString() == "4")
+                        {
+                            @:@("软件学院")
                                 }
-                                @if (item.user_major.ToString() == "6")
-                                {
-                                    @:@("其他")
-                                }</td>
-                            <td>@if (item.user_grade.ToString() == "1")
-                                {
-                                    @:@("一年级")
+                        @if (item.user_major.ToString() == "5")
+                        {
+                            @:@("艺术学院")
                                 }
-                                @if (item.user_grade.ToString() == "2")
-                                {
-                                    @:@("二年级")
+                        @if (item.user_major.ToString() == "6")
+                        {
+                            @:@("其他")
                                 }
-                                @if (item.user_grade.ToString() == "3")
-                                {
-                                    @:@("三年级")
+                    </td>
+                    <td>
+                        @if (item.user_grade.ToString() == "1")
+                        {
+                            @:@("一年级")
                                 }
-                                @if (item.user_grade.ToString() == "4")
-                                {
-                                    @:@("四年级")
+                    @if (item.user_grade.ToString() == "2")
+                    {
+                        @:@("二年级")
                                 }
-                                @if (item.user_grade.ToString() == "5")
-                                {
-                                    @:@("五年级")
+                    @if (item.user_grade.ToString() == "3")
+                    {
+                        @:@("三年级")
                                 }
-                                @if (item.user_grade.ToString() == "6")
-                                {
-                                    @:@("其他")
+                    @if (item.user_grade.ToString() == "4")
+                    {
+                        @:@("四年级")
                                 }
-                                
-                            </td>
+                    @if (item.user_grade.ToString() == "5")
+                    {
+                        @:@("五年级")
+                                }
+                    @if (item.user_grade.ToString() == "6")
+                    {
+                        @:@("其他")
+                                }
+
+                </td>
                             <td>
                                 @if (item.user_group.ToString() == "0")
                                 {
@@ -180,14 +195,14 @@
                                     @:@("数据库")
                             }
                             </td>
-                        </tr>                       
+            </tr>
                     }
 
                 </table>
             </div>
-            
+
         </div>
-        
+
     </div>
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>

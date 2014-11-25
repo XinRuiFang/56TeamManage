@@ -58,7 +58,7 @@
         }
         #datadiv {
             width:150px;
-            height:130px;
+            height:160px;
             font-family:"微软雅黑";
             font-size:14px;
             border:inset;
@@ -113,7 +113,9 @@
             <div id="title" style="color:white">56工作室</div><br />
             <div id="sctitle" style="color:white">56 Team</div>
         </div>
-        <div id="weldiv">&hearts;&hearts;欢迎你：@Model.Name.ToString()!&hearts;&hearts;</div>
+        <div id="weldiv">&hearts;&hearts;欢迎你：@Model.Name.ToString()!&hearts;&hearts;
+            <div style="font-family:'微软雅黑';font-size:12px;width:50px; position:relative;left:500px;top:-10px;">@Html.ActionLink("退出登录", "Back", "Home")</div>
+        </div>
         <div id="homediv">
             <div id="datadiv">
                 <table>

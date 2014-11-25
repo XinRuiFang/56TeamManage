@@ -266,6 +266,9 @@
     <Content Include="Views\UserInGroup\Index.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
     <Content Include="Views\Manage\InfoGroupPermit.cshtml" />
+    <Content Include="Views\Member\SelectGroup.cshtml" />
+    <Content Include="Views\Member\SelectGrade.cshtml" />
+    <Content Include="Views\Member\SelectMajor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

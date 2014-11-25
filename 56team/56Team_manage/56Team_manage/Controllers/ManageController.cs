@@ -24,7 +24,7 @@ namespace _56Team_manage.Controllers
         }
         public ActionResult InfoGroupPermit()
         {
-            List<Model.C56rms_user> ulist = BLL.MkTableForView.GetPermitList();
+            List<Model.C56rms_user> ulist = BLL.GetMsgTableBLL.GetPermitList();
             return View(ulist);
         }
         public ActionResult PassPermit(FormCollection form)
@@ -32,7 +32,7 @@ namespace _56Team_manage.Controllers
             string userName = form["userName"].ToString();
             Model.C56rms_user user = BLL.GetDataBaseModel.GetModelBySession(userName);
             BLL.SetDataBaseModel.SetUserLimit(user);           
-            List<Model.C56rms_user> ulist = BLL.MkTableForView.GetPermitList();
+            List<Model.C56rms_user> ulist = BLL.GetMsgTableBLL.GetPermitList();
             return View("InfoGroupPermit", ulist);
         }
 

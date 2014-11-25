@@ -35,7 +35,11 @@ namespace _56Team_manage.Controllers
             dynamic userModel = Others.GetRModelBySession.GetModelForView(Session["Name"].ToString());
             return View(userModel);
         }
-
+        public ActionResult Back()
+        {
+            Session["Name"] = null;
+            return View("~/views/Login/Index.cshtml");
+        }
        
     }
 }

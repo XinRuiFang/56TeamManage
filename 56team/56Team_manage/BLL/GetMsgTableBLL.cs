@@ -9,7 +9,7 @@ using System.Web.UI.HtmlControls;
 
 namespace BLL
 {
-    public static class MkTableForView
+    public static class GetMsgTableBLL
     {
         public static List<C56rms_user> MkMemsTable()
         {
@@ -38,6 +38,18 @@ namespace BLL
         public static List<C56rms_user> GetPermitList()
         {
             return DAL.Message.GetPermitList();
+        }
+        public static List<C56rms_user> GetGroupList(int group)
+        {
+            return DAL.Message.GetGroupList(group);
+        }
+        public static List<C56rms_user> GetGradeList(int grade)
+        {
+            return DAL.Message.GetGradeList(grade);
+        }
+        public static List<C56rms_user> GetMajorList(int major)
+        {
+            return DAL.Message.GetMajorList(major);
         }
     }
 }

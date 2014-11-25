@@ -12,6 +12,5 @@ E:\PCode\project\56team\56Team_manage\Model\bin\Debug\Model.pdb
 E:\PCode\project\56team\56Team_manage\Model\bin\Debug\EntityFramework.dll
 E:\PCode\project\56team\56Team_manage\Model\bin\Debug\EntityFramework.xml
 E:\PCode\project\56team\56Team_manage\Model\bin\Debug\zh-Hans\EntityFramework.resources.dll
-E:\PCode\project\56team\56Team_manage\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
 E:\PCode\project\56team\56Team_manage\Model\obj\Debug\Model.dll
 E:\PCode\project\56team\56Team_manage\Model\obj\Debug\Model.pdb

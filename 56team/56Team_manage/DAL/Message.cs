@@ -31,5 +31,18 @@ namespace DAL
             return db.C56rms_user.Where(u => u.user_group != null && u.grouppsIsTrue == 0).ToList();
 
         }
+        public static List<Model.C56rms_user> GetGroupList(int group)
+        {
+
+            return db.C56rms_user.Where(u => u.user_group == group && u.user_limit != 0).ToList();
+        }
+        public static List<Model.C56rms_user> GetGradeList(int Grade)
+        {
+            return db.C56rms_user.Where(u => u.user_grade == Grade && u.user_limit != 0).ToList();
+        }
+        public static List<Model.C56rms_user> GetMajorList(int Major)
+        {
+            return db.C56rms_user.Where(u => u.user_major == Major && u.user_limit != 0).ToList();
+        }
     }
 }
