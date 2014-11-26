@@ -68,10 +68,22 @@
             font-weight:bold;
             color:blue;
         }
+        #btn1msg {
+            width:150px;
+            height:100px;
+            background:url(../../Image/back1.jpg);
+            font-family:"幼圆";
+            font-size:28px;
+            font-weight:bold;
+            color:blue;
+        }
     </style>
     <script>
     function tz() {
         window.location.href = "../Manage/InfoGroupPermit";
+    }
+    function memmanage() {
+        window.location.href = "../Manage/MembersManager";
     }
     </script>
 
@@ -86,6 +98,9 @@
         <div id="homediv">
             <div>
                 <button id="btnmsg" onclick="tz()">进组申请审批</button>
+            </div>
+            <div>
+                <button id="btn1msg" onclick="memmanage()">人员管理</button>
             </div>
         </div>
         <div>

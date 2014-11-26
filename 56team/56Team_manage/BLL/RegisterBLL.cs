@@ -19,5 +19,9 @@ namespace BLL
                 return false;
             }
         }
+        public static bool CheckUserName(string userName)
+        {
+            return DAL.User.CheckUserName(userName);
+        }
     }
 }

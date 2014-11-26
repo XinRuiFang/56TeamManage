@@ -51,5 +51,17 @@ namespace BLL
         {
             return DAL.Message.GetMajorList(major);
         }
+        public static List<C56rms_user> GetUserByRealName(string realname)
+        {
+            return DAL.Message.GetUserByRealName(realname);
+        }
+        public static bool DelUser(string userName)
+        {
+            return DAL.Message.DelUser(userName);
+        }
+        public static bool OutGroup(string userName)
+        {
+            return DAL.Message.OutGroup(userName);
+        }
     }
 }

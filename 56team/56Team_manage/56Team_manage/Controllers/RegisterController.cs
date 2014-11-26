@@ -40,6 +40,11 @@ namespace _56Team_manage.Controllers
             string vcode = form["vcode"];
             if (Session["vCode"].ToString() == vcode)
             {
+                if (!BLL.RegisterBLL.CheckUserName(userName))
+                {
+                    Response.Write("<script>alert('用户名已存在！');</script>");
+                    return View();
+                }
                 Model.C56rms_user user = new Model.C56rms_user();
                 user.user_name = userName;
                 user.password = password;

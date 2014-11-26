@@ -35,6 +35,18 @@ namespace _56Team_manage.Controllers
             List<Model.C56rms_user> ulist = BLL.GetMsgTableBLL.GetPermitList();
             return View("InfoGroupPermit", ulist);
         }
+        public ActionResult MembersManager()
+        {
+            List<Model.C56rms_user> uList = BLL.GetMsgTableBLL.MkMemsTable();
+            return View(uList);     
+        }
+        public ActionResult DelUser(FormCollection form)
+        {
+            string userName = form["userName"].ToString();
+            BLL.GetMsgTableBLL.OutGroup(userName);
+            List<Model.C56rms_user> ulist = BLL.GetMsgTableBLL.MkMemsTable();
+            return View("MembersManager", ulist);        
+        }
 
     }
 }

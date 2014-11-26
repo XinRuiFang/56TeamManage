@@ -17,6 +17,18 @@ namespace _56Team_manage.Controllers
             List<Model.C56rms_user> uList = BLL.GetMsgTableBLL.MkMemsTable();          
             return View(uList);       
         }
+        [HttpPost]
+        public ActionResult Index(FormCollection form)
+        {
+            if (form["userName"] != null && form["userName"].ToString() != "") 
+            {
+                string user = form["userName"];
+                List<Model.C56rms_user> uList = BLL.GetMsgTableBLL.GetUserByRealName(user);
+                return View(uList);
+            }           
+            List<Model.C56rms_user> aList = BLL.GetMsgTableBLL.MkMemsTable();
+            return View(aList);
+        }
         public ActionResult SelectAllMems()
         {
             List<Model.C56rms_user> uList = BLL.GetMsgTableBLL.MkMemsTable();   
@@ -128,5 +140,6 @@ namespace _56Team_manage.Controllers
             return View("SelectMajor", uList);
         } 
         #endregion
+       
     }
 }

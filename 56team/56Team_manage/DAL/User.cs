@@ -74,5 +74,13 @@ namespace DAL
             auser.user_limit = 1;
             return db.SaveChanges() == 1 ? true : false;
         }
+        public static bool CheckUserName(string userName)
+        {
+            if (db.C56rms_user.Where(u => u.user_name == userName) != null)
+            {
+                return false;
+            }
+            return true;         
+        }
     }
 }

@@ -44,5 +44,23 @@ namespace DAL
         {
             return db.C56rms_user.Where(u => u.user_major == Major && u.user_limit != 0).ToList();
         }
+        public static List<Model.C56rms_user> GetUserByRealName(string realname)
+        {
+            return db.C56rms_user.Where(u => u.user_realname == realname && u.user_limit != 0).ToList();
+        }
+        public static bool OutGroup(string Name)
+        {
+            List<Model.C56rms_user> Mems = db.C56rms_user.Where(u => u.user_name == Name && u.user_limit != 0).ToList();
+            Mems.ForEach(u => u.user_limit = 0);
+            Mems.ForEach(u => u.user_group = null);
+            Mems.ForEach(u => u.grouppsIsTrue = 0);
+            return db.SaveChanges() == 1 ? true : false;
+        }
+        public static bool DelUser(string userName)
+        {
+            List<Model.C56rms_user> listDeleting = db.C56rms_user.Where(u => u.user_name == userName).ToList();
+            listDeleting.ForEach(u => db.C56rms_user.Remove(u));
+            return db.SaveChanges() == 1 ? true : false;
+        }
     }
 }

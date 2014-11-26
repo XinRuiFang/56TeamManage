@@ -51,6 +51,7 @@
         }
         #selectdiv {
              width:800px;
+             
              font-family:"微软雅黑";
              position:relative;
              left:300px; 
@@ -72,15 +73,23 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="Index">查看所有人员</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="SelectGroup">按组查看</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="SelectGrade">按年级查看</a></li>
-                    <li role="presentation"><a role="menuitem" tabindex="-1" href="SelectMajor">按院系查看</a></li>
-                    
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../Member/Index">查看所有人员</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../Member/SelectGroup">按组查看</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../Member/SelectGrade">按年级查看</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="../Member/SelectMajor">按院系查看</a></li>                  
                 </ul>
-                
-                    <div style="font-family:'微软雅黑';font-size:12px;position:relative;left:350px;top:-20px;">@Html.ActionLink("返回", "Index", "Home")</div>
-                
+                    
+                    <div style="font-family:'微软雅黑';font-size:12px;">@Html.ActionLink("返回", "Index", "Home")</div>
+                    <div>
+                        @using (Html.BeginForm("Index", "Member", FormMethod.Post))
+                        {
+                            <div class="input-group" style="width:200px">
+                                <input type="text" class="form-control" name="userName">
+                                <span class="input-group-addon"><input type="submit" value="搜索"/></span>
+                            </div>
+                        }
+                        
+                    </div>
             </div>
             <div>
 
